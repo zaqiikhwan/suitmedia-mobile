@@ -2,6 +2,7 @@ package com.msib.suitmedia.screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -15,6 +16,7 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -52,16 +54,27 @@ fun FirstScreen() {
                 .padding(32.dp, 320.dp, 33.dp, 15.dp)
                 .clip(RoundedCornerShape(12.dp))
                 .background(Color.White)
+                .fillMaxWidth()
             ,
             onValueChange = { name = it },
             label = { Text("Name", color = Color.Black) }
         )
+//        TextField(
+//            value = name,
+//            onValueChange = { name = it },
+//            modifier = Modifier
+//                .clip(RoundedCornerShape(12.dp))
+//                .padding(32.dp, 0.dp, 33.dp, 15.dp)
+//                .background(Color.White),
+//            placeholder = { Text("Name") }
+//        )
 
         OutlinedTextField(
             value = sentence,
             modifier = Modifier
                 .padding(32.dp, 0.dp, 33.dp, 15.dp)
                 .clip(RoundedCornerShape(12.dp))
+                .fillMaxWidth()
                 .background(color = Color.White)
             ,
             onValueChange = { sentence = it },

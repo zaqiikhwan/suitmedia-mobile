@@ -2,7 +2,6 @@ package com.msib.suitmedia.screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -11,12 +10,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -29,11 +26,15 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.msib.suitmedia.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun FirstScreen() {
+fun FirstScreen(navController: NavHostController) {
     Box(modifier = Modifier.fillMaxSize()) {
         Image(
             painter = painterResource(id = R.drawable.background_1),
@@ -111,7 +112,13 @@ fun FirstScreen() {
         }
 
         Button(
-            onClick = { /* navigate to second screen */ },
+            onClick = { navController.navigate("second") {
+                navController.graph.startDestinationRoute?.let { route ->
+                    popUpTo(route) { saveState = true }
+                }
+                launchSingleTop = true
+                restoreState = true
+            } },
             modifier = Modifier
                 .padding(32.dp, 0.dp)
                 .clip(RoundedCornerShape(12.dp))

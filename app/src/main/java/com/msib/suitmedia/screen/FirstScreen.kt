@@ -59,16 +59,6 @@ fun FirstScreen() {
             onValueChange = { name = it },
             label = { Text("Name", color = Color.Black) }
         )
-//        TextField(
-//            value = name,
-//            onValueChange = { name = it },
-//            modifier = Modifier
-//                .clip(RoundedCornerShape(12.dp))
-//                .padding(32.dp, 0.dp, 33.dp, 15.dp)
-//                .background(Color.White),
-//            placeholder = { Text("Name") }
-//        )
-
         OutlinedTextField(
             value = sentence,
             modifier = Modifier

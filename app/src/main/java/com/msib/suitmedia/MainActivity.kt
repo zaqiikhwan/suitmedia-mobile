@@ -12,6 +12,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.msib.suitmedia.screen.FirstScreen
 import com.msib.suitmedia.screen.SecondScreen
+import com.msib.suitmedia.screen.ThirdScreen
 import com.msib.suitmedia.ui.theme.SuitmediainternTheme
 
 class MainActivity : ComponentActivity() {
@@ -31,6 +32,9 @@ class MainActivity : ComponentActivity() {
                         }
                         composable(route = "second") {
                             SecondScreen(navController)
+                        }
+                        composable(route = "third") {
+                            ThirdScreen(navController)
                         }
                     }
                 }

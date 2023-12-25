@@ -26,19 +26,20 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SecondScreen(navController: NavHostController) {
+fun SecondScreen(navController: NavController) {
     Scaffold(
         topBar = {
             TopAppBar(
                 title = { Text("Second Screen", textAlign = TextAlign.Center, modifier = Modifier.width(260.dp), style = MaterialTheme.typography.bodyMedium, fontSize = 18.sp) },
                 navigationIcon = {
                     IconButton(onClick = {
-                        navController.navigateUp()
+                        navController.navigate("first")
                     }) {
                         Icon(Icons.Filled.KeyboardArrowLeft, contentDescription = "Back", tint = Color.Blue)
                     }
